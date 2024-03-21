@@ -22,7 +22,7 @@ app.get('/test', (req,res)=>{
     } catch (error){
         res.status(500).json({message: 'Error en el servidor'})
 
-}):
+}});
 
 //Get all users
 app.get('/users', async (req,res) => {
@@ -38,8 +38,8 @@ app.get('/users', async (req,res) => {
 //Get user by id
 app.get('/user/:id', async (req,res)=> {
     try{
-        cosnt user = await prisma.user.findUnique({
-            where {
+        const user = await prisma.user.findUnique({
+            where: {
                 id: Number(req.params.id),
             },
         });
@@ -89,8 +89,12 @@ app.delete("/users/:id", async (req,res)=>{
             where:{
                 id: Number(req.params.id),
             },
-        }),
+        });
             res.status(200).json(user);
     }catch(error){
         res.status(500).json({message: error.message});
     }});
+
+    //start server
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => console.log(`Server is running on port ${PORT}`) );
