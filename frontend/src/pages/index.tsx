@@ -1,6 +1,6 @@
 import React from 'react'
-import useState from 'react'
-import useEffect  from 'react'
+import {useState} from 'react'
+import {useEffect}  from 'react'
 import axios from 'axios'
 import CardComponent from '../components/CardComponent'
 
@@ -26,6 +26,15 @@ useEffect(()=>{
     }
   };
 
-  fetch(data);
+  fetchData();
   },[]);
+
+
+return (
+  <main className='flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100'>
+  <div className='space-y-4 w-full max-w-2x1'>
+  <h1 className='text 2x1 font-bold text-gray-800 text-center'>User Management App</h1>
+  </div>
+  </main>
+);
 }
