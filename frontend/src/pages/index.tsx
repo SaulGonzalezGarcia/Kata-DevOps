@@ -29,6 +29,19 @@ useEffect(()=>{
   fetchData();
   },[]);
 
+//Create User
+const createUSer = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  try{
+    const response = await axios.post(`${apiUrl}/users`, newUser);
+    setUsers([response.data, ...users]);
+    setNewUser({name:'',email:''});
+  }catch(error){
+    console.error('error creating user',error);
+  }
+};
+
+
 
 return (
   <main className='flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100'>
