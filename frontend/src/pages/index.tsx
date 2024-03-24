@@ -57,8 +57,24 @@ return (
   onChange={e => setNewUser({...newUser, name : e.target.value})}
   className='mb-2 w-full p-2 border border-gray-300 rounded'
 />
+<input
+placeholder='Email'
+value={newUser.email}
+
+onChange={(e) => setNewUser({...newUser, email: e.target.value})}
+className='mb-2 w-full p-2 border border-gray-300 rounded'
+/>
 </form>
 
+ {/* Display users*/}
+
+ <div className='space-y-2'>
+ </div>
+  {users.map((user)=>(
+     <div className='flex items-center justify-beetween bg-white'>
+      <CardComponent card={user} />
+     </div>
+    ))}
   </div>
   </main>
 );
