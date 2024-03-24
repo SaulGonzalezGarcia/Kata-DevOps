@@ -47,6 +47,18 @@ return (
   <main className='flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100'>
   <div className='space-y-4 w-full max-w-2x1'>
   <h1 className='text 2x1 font-bold text-gray-800 text-center'>User Management App</h1>
+
+
+{/* Create User */ }
+<form onSubmit={createUSer} className='p-4 blue-100 rounded shadow'>
+  <input
+  placeholder='Name'
+  value={newUser.name}
+  onChange={e => setNewUser({...newUser, name : e.target.value})}
+  className='mb-2 w-full p-2 border border-gray-300 rounded'
+/>
+</form>
+
   </div>
   </main>
 );
