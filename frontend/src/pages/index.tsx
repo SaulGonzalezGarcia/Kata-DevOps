@@ -65,6 +65,9 @@ onChange={(e) => setNewUser({...newUser, email: e.target.value})}
 className='mb-2 w-full p-2 border border-gray-300 rounded'
 />
 </form>
+<button type="submit" className='w-full p-2 text-white bg-blue-500 rounded'>
+  Add user
+  </button>
 
  {/* Display users*/}
 
