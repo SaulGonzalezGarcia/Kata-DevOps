@@ -113,6 +113,9 @@ onChange={(e)=>setUpdateUser({...updateUser, email:e.target.value})}
 className='mb-2 w-full p-2 border border-gray-300 rounded'
 />
 </form>
+<button type='submit' className='w-full p-2 text-white bg-green-500 rounded hover'>
+  Update User
+</button>
 
 
 
