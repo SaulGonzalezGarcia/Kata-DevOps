@@ -14,6 +14,7 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'localhost:4000';
 const [users, setUsers] = useState<User[]>([]);
 const [newUser, setNewUser] = useState<User>({name: '', email: ''});
 const [updateUser, setUpdateUser] = useState({id:'', name:'', email:''});
+
 //fetch users
 
 useEffect(()=>{
@@ -41,6 +42,24 @@ const createUSer = async (e: React.FormEvent<HTMLFormElement>) => {
   }
 };
 
+{/*Update users */}
+
+const handleUpdateUser = async (e: React.FormEvent<HTMLFormElement>) => {
+  try{
+    await axios.put(  `${apiUrl}/users/${updateUser.id}`, {name: updateUser.name, email: updateUser.email});
+    setUpdateUser({id:'', name:'', email:''});
+    setUsers(
+    
+      users.map((user) => {
+        if(user.id===parseInt(updateUser.id)) {
+          return{...user, name:updateUser.name, email: updateUser.mail};
+        }
+        return user;
+        }));
+  } catch(error){
+    console.error('Error updating user',error);
+  }
+};
 
 
 return (
@@ -69,7 +88,12 @@ className='mb-2 w-full p-2 border border-gray-300 rounded'
   Add user
   </button>
 
+
+
+
+
  {/* Display users*/}
+  
 
  <div className='space-y-2'>
  </div>
