@@ -138,12 +138,15 @@ className='mb-2 w-full p-2 border border-gray-300 rounded'
   
 
  <div className='space-y-2'>
- </div>
+ 
   {users.map((user)=>(
      <div className='flex items-center justify-beetween bg-white'>
       <CardComponent card={user} />
+      <button onClick={() => deleteUser(user.Id)} className='bg-red-500'>Delete User</button>
      </div>
+      
     ))}
+  </div>
   </div>
   </main>
 );
