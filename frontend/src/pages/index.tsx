@@ -62,6 +62,18 @@ const handleUpdateUser = async (e: React.FormEvent<HTMLFormElement>) => {
   }
 };
 
+{/*Delete Users*/}
+const deleteUser = async (userId: number)=> {
+  try{
+    await axios.delete(`${apiUrl}/users/${userId}`);
+    setUsers(users.filter((user)=> userId!==userId));
+  }catch(error){
+    console.error('Error deleting user',error);
+  }
+};
+
+
+
 
 return (
   <main className='flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100'>
